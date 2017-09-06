@@ -12,60 +12,62 @@
         android:id="@+id/imageView"
         android:layout_width="@dimen/larguraLogo"
         android:layout_height="@dimen/alturaLogo"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/logo"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp"
-        app:srcCompat="@drawable/logo" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
         android:hint="Digite seu nome"
-        android:textColor="@color/textColorPrimary" />
+        android:textColor="@color/textColorPrimary"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editCodPais"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/editNome"
         android:layout_marginTop="39dp"
         android:inputType="number"
         android:hint="+55"
         android:textColor="@color/textColorPrimary" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editCodEstado"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:hint="67"
-        android:layout_alignBaseline="@+id/editText2"
-        android:layout_toEndOf="@+id/editText2"
+        android:layout_alignBaseline="@+id/editCodPais"
+        android:layout_toEndOf="@+id/editCodPais"
         android:layout_marginStart="10dp"
         android:textColor="@color/textColorPrimary" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editTelefone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="999999999"
-        android:layout_alignBaseline="@+id/editText3"
-        android:layout_toEndOf="@+id/editText3"
+        android:hint="99999-9999"
+        android:layout_alignBaseline="@+id/editCodEstado"
+        android:layout_toEndOf="@+id/editCodEstado"
         android:layout_marginStart="10dp"
         android:textColor="@color/textColorPrimary" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText4"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
         android:text="@string/botaoCadastrar"
-        android:background="@color/colorPrimaryDark" />
+        android:background="@color/colorPrimaryDark"
+        android:layout_below="@+id/editCodPais"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
