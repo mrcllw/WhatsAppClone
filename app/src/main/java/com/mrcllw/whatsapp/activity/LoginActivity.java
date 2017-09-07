@@ -2,6 +2,7 @@ package com.mrcllw.whatsapp.activity;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
@@ -74,7 +76,13 @@ public class LoginActivity extends AppCompatActivity {
                 telefoneSemChar = "8135";
                 boolean enviadoSMS = enviarSMS("+" + telefoneSemChar, mensagem);
 
-                HashMap<String, String> usuarioPreferencias = preferencias.getUsuarioPreferencias();
+                if(enviadoSMS){
+                    Intent intent = new Intent(LoginActivity.this, ValidadorActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Problema ao enviar SMS. Tente novamente.", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
