@@ -4,71 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mrcllw.whatsapp.activity.LoginActivity"
     android:background="@color/colorPrimary"
-    android:padding="15dp">
+    android:gravity="center_vertical|center_horizontal"
+    android:padding="15dp"
+    tools:context="com.mrcllw.whatsapp.activity.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/larguraLogo"
         android:layout_height="@dimen/alturaLogo"
-        android:layout_marginTop="30dp"
         app:srcCompat="@drawable/logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/editNome"
+        android:id="@+id/editEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Digite seu nome"
-        android:textColor="@color/textColorPrimary"
         android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="22dp" />
-
-    <EditText
-        android:id="@+id/editCodPais"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editNome"
-        android:layout_marginTop="39dp"
-        android:inputType="number"
-        android:hint="+55"
+        android:layout_marginTop="22dp"
+        android:hint="Digite seu e-mail"
+        android:inputType="textEmailAddress"
         android:textColor="@color/textColorPrimary" />
 
-    <EditText
-        android:id="@+id/editCodEstado"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="67"
-        android:layout_alignBaseline="@+id/editCodPais"
-        android:layout_toEndOf="@+id/editCodPais"
-        android:layout_marginStart="10dp"
-        android:textColor="@color/textColorPrimary" />
 
     <EditText
-        android:id="@+id/editTelefone"
+        android:id="@+id/editSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="99999-9999"
-        android:layout_alignBaseline="@+id/editCodEstado"
-        android:layout_toEndOf="@+id/editCodEstado"
-        android:layout_below="@+id/editNome"
-        android:layout_marginStart="10dp"
+        android:layout_below="@+id/editEmail"
+        android:layout_marginTop="10px"
+        android:hint="Digite sua senha"
+        android:inputType="textPassword"
         android:textColor="@color/textColorPrimary" />
 
     <Button
-        android:id="@+id/buttonCadastrar"
+        android:id="@+id/buttonLogar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="@string/botaoCadastrar"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editSenha"
+        android:layout_marginTop="50px"
         android:background="@color/colorPrimaryDark"
-        android:layout_below="@+id/editCodPais"
-        android:layout_alignParentStart="true" />
+        android:text="@string/buttonLogar"
+        android:textColor="@color/textColorPrimary" />
+
+    <TextView
+        android:id="@+id/textCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonLogar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="@string/textCadastrar"
+        android:textColor="@color/textColorPrimary" />
 </RelativeLayout>
