@@ -5,4 +5,8 @@
     <string name="botaoValidar">Validar</string>
     <string name="textCadastrar">Não tem uma conta? Cadastre-se</string>
     <string name="buttonLogar">Logar</string>
+    <string name="itemConfiguracoes">Configurações</string>
+    <string name="itemSair">Sair</string>
+    <string name="itemPesquisa">Pesquisar</string>
+    <string name="itemAdiciona">Adicionar</string>
 </resources>
