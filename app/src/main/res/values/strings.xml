@@ -9,4 +9,7 @@
     <string name="itemSair">Sair</string>
     <string name="itemPesquisa">Pesquisar</string>
     <string name="itemAdiciona">Adicionar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
