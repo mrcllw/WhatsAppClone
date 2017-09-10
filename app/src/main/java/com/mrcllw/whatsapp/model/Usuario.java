@@ -2,7 +2,7 @@ package com.mrcllw.whatsapp.model;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
-import com.google.firebase.database.FirebaseDatabase;
+import com.mrcllw.whatsapp.application.FirebaseConfig;
 
 /**
  * Created by mrcllw on 07/09/17.
@@ -18,10 +18,8 @@ public class Usuario {
     public Usuario(){}
 
     public void salvarUsuario(){
-
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference("usuarios");
-        databaseReference.child(getId()).setValue(this);
+        DatabaseReference databaseReference = FirebaseConfig.getFirebaseDatabaseReference();
+        databaseReference.child("usuarios").child(getId()).setValue(this);
     }
 
     @Exclude

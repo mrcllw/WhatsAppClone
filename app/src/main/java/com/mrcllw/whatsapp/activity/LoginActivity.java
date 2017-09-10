@@ -15,6 +15,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.mrcllw.whatsapp.R;
+import com.mrcllw.whatsapp.application.FirebaseConfig;
+import com.mrcllw.whatsapp.helper.Base64Custom;
+import com.mrcllw.whatsapp.helper.Preferencias;
 import com.mrcllw.whatsapp.model.Usuario;
 
 
@@ -32,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseConfig.getFirebaseAuth();
         verificarUsuarioLogado();
 
         editEmail = (EditText) findViewById(R.id.editEmail);
@@ -66,6 +69,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(LoginActivity.this, "Conectado!", Toast.LENGTH_LONG).show();
+
+                    Preferencias preferencias = new Preferencias(LoginActivity.this);
+                    String id = Base64Custom.converterBase64(usuario.getEmail());
+                    preferencias.salvarDados(id);
+
                     abrirTelaPrincipal();
                 } else {
                     Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();

@@ -13,6 +13,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.mrcllw.whatsapp.R;
+import com.mrcllw.whatsapp.application.FirebaseConfig;
+import com.mrcllw.whatsapp.helper.Base64Custom;
 import com.mrcllw.whatsapp.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
@@ -28,7 +30,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseConfig.getFirebaseAuth();
 
         editCadNome = (EditText) findViewById(R.id.editCadNome);
         editCadEmail = (EditText) findViewById(R.id.editCadEmail);
@@ -53,7 +55,8 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    usuario.setId(task.getResult().getUser().getUid().toString());
+                    String id = Base64Custom.converterBase64(usuario.getEmail());
+                    usuario.setId(id);
                     usuario.salvarUsuario();
                     finish();
                     Toast.makeText(CadastroUsuarioActivity.this, "Cadastrado!", Toast.LENGTH_LONG).show();
